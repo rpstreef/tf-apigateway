@@ -10,14 +10,14 @@ These parameters configure the use of the OpenAPI 3 document:
 
 ## How to use:
 
-Call the module:
+Call the module with the specific version you want using the ```ref``` query parameter:
 
 ```terraform
 # -----------------------------------------------------------------------------
 # API Gateway
 # -----------------------------------------------------------------------------
 module "apigateway" {
-  source            = "github.com/rpstreef/tf-apigateway"
+  source            = "github.com/rpstreef/tf-apigateway?ref=v1.0"
   resource_tag_name = var.resource_tag_name
   namespace         = var.namespace
   region            = var.region
@@ -30,14 +30,6 @@ module "apigateway" {
   api_template               = file("../../services/api/${local.api_name}.yml")
   api_template_vars = {
     region = var.region
-
-    cognito_user_pool_arn = module.cognito.cognito_user_pool_arn
-
-    lambda_identity_arn     = module.identity.lambda_arn
-    lambda_identity_timeout = var.lambda_identity_api_timeout
-
-    lambda_user_arn     = module.user.lambda_arn
-    lambda_user_timeout = var.lambda_user_api_timeout
   }
 
   lambda_zip_name = local.lambda_zip_name
