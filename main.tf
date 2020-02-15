@@ -35,6 +35,8 @@ resource "aws_api_gateway_stage" "_" {
   rest_api_id   = aws_api_gateway_rest_api._.id
   deployment_id = aws_api_gateway_deployment._.id
 
+  xray_tracing_enabled = var.xray_tracing_enabled
+  
   tags = {
     Environment = var.namespace
     Name        = var.resource_tag_name
@@ -51,5 +53,6 @@ resource "aws_api_gateway_method_settings" "_" {
     throttling_rate_limit  = var.api_throttling_rate_limit
     metrics_enabled        = var.api_metrics_enabled
     logging_level          = var.api_logging_level
+    data_trace_enabled     = var.api_data_trace_enabled
   }
 }

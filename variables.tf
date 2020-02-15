@@ -50,6 +50,20 @@ variable "api_logging_level" {
   default     = "OFF"
 }
 
+variable "api_data_trace_enabled" {
+  description = "(Optional) Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs."
+  type        = bool
+  default     = false
+}
+
+variable "xray_tracing_enabled" {
+  description = "Enables the XRay tracing and will create the necessary IAM permissions "
+  type        = bool
+  default     = false
+}
+
+
+
 # -----------------------------------------------------------------------------
 # Variables: Misc.
 # -----------------------------------------------------------------------------
