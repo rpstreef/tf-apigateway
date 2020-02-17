@@ -56,3 +56,20 @@ resource "aws_api_gateway_method_settings" "_" {
     data_trace_enabled     = var.api_data_trace_enabled
   }
 }
+
+
+# -----------------------------------------------------------------------------
+# CloudWatch: API Gateway 
+# -----------------------------------------------------------------------------
+module "cloudwatch_alarms_apigateway" {
+  source = "./cloudwatch-alarms-apigateway"
+
+  namespace         = var.namespace
+  region            = var.region
+  resource_tag_name = var.resource_tag_name
+
+  api_name  = local.api_name
+  api_stage = aws_api_gateway_stage._.stage_name
+
+  resources = var.api_resources
+}
