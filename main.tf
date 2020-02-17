@@ -71,5 +71,5 @@ module "cloudwatch_alarms_apigateway" {
   api_name  = local.api_name
   api_stage = aws_api_gateway_stage._.stage_name
 
-  resources = var.api_resources
+  resources = var.resources
 }
