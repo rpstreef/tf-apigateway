@@ -36,7 +36,7 @@ resource "aws_api_gateway_stage" "_" {
   deployment_id = aws_api_gateway_deployment._.id
 
   xray_tracing_enabled = var.xray_tracing_enabled
-  
+
   tags = {
     Environment = var.namespace
     Name        = var.resource_tag_name
@@ -57,7 +57,6 @@ resource "aws_api_gateway_method_settings" "_" {
   }
 }
 
-
 # -----------------------------------------------------------------------------
 # CloudWatch: API Gateway 
 # -----------------------------------------------------------------------------
@@ -72,4 +71,16 @@ module "cloudwatch_alarms_apigateway" {
   api_stage = aws_api_gateway_stage._.stage_name
 
   resources = var.resources
+
+  create_latency_alarm      = var.create_latency_alarm
+  latency_threshold_p95     = var.latency_threshold_p95
+  latency_threshold_p99     = var.latency_threshold_p99
+  latency_evaluationPeriods = var.latency_evaluationPeriods
+
+  fourRate_threshold         = var.fourRate_threshold
+  fourRate_evaluationPeriods = var.fourRate_evaluationPeriods
+
+  fiveRate_threshold         = var.fiveRate_threshold
+  fiveRate_evaluationPeriods = var.fiveRate_evaluationPeriods
+
 }
