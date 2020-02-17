@@ -61,4 +61,7 @@ Use the resources parameter ```var.resources``` to specify which API endpoints y
 
 - added data trace variable
 - added X-Ray tracing variable
-- 
+
+### v1.0
+
+Initial release
