@@ -8,7 +8,7 @@ These parameters configure the use of the OpenAPI 3 document:
 - __api_template__: API Gateway OpenAPI 3 template file
 - __api_template_vars__: Variables required in the OpenAPI template file
 
-Added support for CloudWatch Alamrs in __v1.2__, use the ```var.resources``` parameter to specify which endpoints you want to monitor.
+Added support for CloudWatch Alarms in __v1.2__, use the ```var.resources``` parameter to specify which endpoints you want to monitor.
 
 ## How to use:
 
