@@ -24,10 +24,6 @@ resource "aws_api_gateway_deployment" "_" {
   lifecycle {
     create_before_destroy = true
   }
-
-  variables = {
-    "source_code_hash" = filebase64sha256("${var.dist_file_path}/${var.lambda_zip_name}")
-  }
 }
 
 resource "aws_api_gateway_stage" "_" {

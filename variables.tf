@@ -63,17 +63,6 @@ variable "xray_tracing_enabled" {
 }
 
 # -----------------------------------------------------------------------------
-# Variables: Misc.
-# -----------------------------------------------------------------------------
-variable "lambda_zip_name" {
-  description = "Lambda ZIP source code filename"
-}
-
-variable "dist_file_path" {
-  description = "File path to the Lambda ZIP source code"
-}
-
-# -----------------------------------------------------------------------------
 # Variables: Cloudwatch Alarms Latency
 # -----------------------------------------------------------------------------
 variable "resources" {
