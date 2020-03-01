@@ -34,9 +34,6 @@ module "apigateway" {
     region = var.region
   }
 
-  lambda_zip_name = local.lambda_zip_name
-  dist_file_path  = local.dist_file_path
-
   resources = {
     "/identity/authenticate" = "POST",
     "/identity/register"     = "POST",
@@ -48,6 +45,9 @@ module "apigateway" {
 ```
 
 ## Changelog
+
+### v1.3
+- removed Lambda source code check, use this if you deploy your source code with CodePipeline
 
 ### v1.2
 Use the resources parameter ```var.resources``` to specify which API endpoints you want the following Alarms to be enabled:
